@@ -12,6 +12,14 @@ services:
       - DOCKER_HOST=tcp://socat:2375
     depends_on:
       - socat
+  jira:
+    container_name: jira
+    image: jira-ca:latest
+    #image: dchevell/jira-software:latest
+    networks:
+      - cloudacademylabs
+    ports:
+      - 8888:8080      
   socat:
     container_name: socat
     image: socat-ca:latest
@@ -23,14 +31,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     expose:
       - "2375"
-  jira:
-    container_name: jira
-    image: jira-software-ca:latest
-    #image: dchevell/jira-software:latest
-    networks:
-      - cloudacademylabs
-    ports:
-      - 8888:8080
 
 networks:
   cloudacademylabs:
