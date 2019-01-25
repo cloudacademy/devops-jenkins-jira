@@ -16,11 +16,7 @@ node {
         sh "ls -la build/libs/*.war"
     }
 
-    stage('JiraIssue'){
-        sh "pwd"
-        sh "ls -la"
-        sh "ls -la build/libs/*.war"
-
+    stage('Raise JiraIssue') {
         def issue = [fields: [ project: [key: JIRA_PROJ_NAME],
                        summary: 'New JIRA Created from Jenkins.',
                        description: 'New JIRA Created from Jenkins.',
