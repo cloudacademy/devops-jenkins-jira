@@ -11,6 +11,7 @@ services:
       - DOCKER_HOST=tcp://socat:2375
     depends_on:
       - socat
+    privileged: true
   jira:
     container_name: jira
     image: jira-ca:latest
