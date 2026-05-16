@@ -16,7 +16,7 @@ services:
 
   socat:
     container_name: socat
-    image: socat-ca:latest
+    image: alpine/socat:1.8.0.3
     networks:
       - cloudacademylabs
     command: tcp-listen:2375,fork,reuseaddr unix-connect:/var/run/docker.sock
